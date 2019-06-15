@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Sensor App</title>
+</head>
+<body>
+
+<h1>Búsqueda de datos de vehículos suscritos</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<form>
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" min="1" step="1" class="form-control" id="id" placeholder="Introduzca ID del dato">
+    <small id="idHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="matricula">Matrícula</label>
+    <input type="text" class="form-control" id="matricula" placeholder="Introduzca matrícula del vehículo">
+    <small id="matriculalHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="latitud">Latitud</label>
+    <input type="number" class="form-control" id="latitud" placeholder="Introduzca latitud">
+    <small id="latitudHelp" class="form-text text-muted">Opcional</small>
+  </div>
+    <div class="form-group">
+    <label for="longitud">Longitud</label>
+    <input type="number" class="form-control" id="longitud" placeholder="Introduzca longitud">
+    <small id="longitudHelp" class="form-text text-muted">Opcional</small>
+  </div>
+    <div class="form-group">
+    <label for="altitud">Altitud</label>
+    <input type="number" class="form-control" id="altitud" placeholder="Introduzca altitud">
+    <small id="altitudHelp" class="form-text text-muted">Opcional</small>
+  </div>
+    <div class="form-group">
+    <label for="velocidad">Velocidad</label>
+    <input type="number" class="form-control" id="velocidad" placeholder="Introduzca velocidad">
+    <small id="velocidadHelp" class="form-text text-muted">Opcional</small>
+  </div>
+    <div class="form-group">
+    <label for="direccion">Dirección</label>
+    <input type="number" class="form-control" id="direccion" placeholder="Introduzca direccion">
+    <small id="direccionHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="subida">Subida</label>
+    <input type="number" class="form-control" id="subida" placeholder="Introduzca velocidad de subida">
+    <small id="subidaHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="rx">Rotación del eje X</label>
+    <input type="number" class="form-control" id="rx" placeholder="Introduzca rotación del eje X">
+    <small id="rxHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="ry">Rotación del eje Y</label>
+    <input type="number" class="form-control" id="ry" placeholder="Introduzca rotación del eje Y">
+    <small id="ryHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="fecha">Fecha</label>
+    <input type="date" class="form-control" id="fecha" placeholder="Introduzca fecha">
+    <small id="fechaHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  <div class="form-group">
+    <label for="hora">Hora</label>
+    <input type="time" step="1" class="form-control" id="hora" placeholder="Introduzca hora">
+    <small id="horaHelp" class="form-text text-muted">Opcional</small>
+  </div>
+  
+  <button type="button" class="btn btn-primary" onclick="goToPage();">Buscar</button>
+  <button type="button" class="btn btn-primary" onclick="location.href='/';">Volver</button>
+</form>
+
+ <script type="text/javascript">
+      function goToPage(){
+    	  var id = document.getElementById("id").value;
+    	  var matricula = document.getElementById("matricula").value;
+    	  var latitud = document.getElementById("latitud").value;
+    	  var longitud = document.getElementById("longitud").value;
+    	  var altitud = document.getElementById("altitud").value;
+    	  var velocidad = document.getElementById("velocidad").value;
+    	  var direccion = document.getElementById("direccion").value;
+    	  var subida = document.getElementById("subida").value;
+    	  var rx = document.getElementById("rx").value;
+    	  var ry = document.getElementById("ry").value;
+    	  var fecha = document.getElementById("fecha").value;
+    	  var hora = document.getElementById("hora").value;
+    	  
+    	  var url = "/sensor/datos?";
+
+    	  if(id.length !=0){
+            	url = url + "&id="+id;
+      	  }
+    	  if(matricula.length !=0){
+          	url = url + "&matricula="+matricula;
+    	  }
+    	  if(latitud.length !=0){
+            	url = url + "&latitud="+latitud;
+      	  }
+    	  if(longitud.length !=0){
+            	url = url + "&longitud="+longitud;
+      	  }
+    	  if(altitud.length !=0){
+            	url = url + "&altitud="+altitud;
+      	  }
+    	  if(velocidad.length !=0){
+            	url = url + "&velocidad="+velocidad;
+      	  }
+    	  if(direccion.length !=0){
+            	url = url + "&direccion="+direccion;
+      	  }
+    	  if(subida.length !=0){
+            	url = url + "&subida="+subida;
+      	  }
+    	  if(rx.length !=0){
+            	url = url + "&rx="+rx;
+      	  }
+    	  if(ry.length !=0){
+            	url = url + "&ry="+ry;
+      	  }
+    	  if(fecha.length !=0){
+        	  	var res=fecha.split("-")
+            	url = url + "&fecha="+res[2]+"/"+res[1]+"/"+res[0];
+      	  }
+    	  if(hora.length !=0){
+            	url = url + "&hora="+hora;
+      	  }
+    	  
+    	  location.href = url;
+    	}
+ </script>
+
+</body>
+</html>

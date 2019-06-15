@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2019 13:01:42 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="sensor.Dato" table="datos">
+		<id name="id" type="long">
+		<column name="id"/>
+    	<generator class="sequence-identity">
+        <param name="sequence">datos_id_seq</param>
+    	</generator>
+		</id>
+
+        <property name="matricula" column="matricula" type="string"/>
+        <property name="latitud" column="latitud" type="double"/>
+        <property name="longitud" column="longitud" type="double"/>
+		<property name="altitud" column="altitud" type="double"/>
+        <property name="velocidad" column="velocidad" type="double"/>
+        <property name="direccion" column="direccion" type="double"/>
+        <property name="subida" column="subida" type="double"/>
+        <property name="rx" column="rx" type="double"/>
+        <property name="ry" column="ry" type="double"/>
+        <property name="fecha" column="fecha" type="string"/>
+        <property name="hora" column="hora" type="string"/>
+    </class>
+</hibernate-mapping>
